@@ -19,7 +19,7 @@ class Win {
     required this.avatar,
   });
 
-  // Convert Win to Map for Firestore
+
   Map<String, dynamic> toMap() {
     return {
       'founderName': founderName,
@@ -31,7 +31,6 @@ class Win {
     };
   }
 
-  // Create Win from Firestore document
   factory Win.fromMap(Map<String, dynamic> map, String documentId) {
     return Win(
       id: documentId,
@@ -44,7 +43,7 @@ class Win {
     );
   }
 
-  // Create a copy with updated values
+
   Win copyWith({
     String? id,
     String? founderName,
