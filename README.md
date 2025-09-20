@@ -1,16 +1,61 @@
-# numerology_app
+clean archtecture
 
-A new Flutter project.
+Each widget does its own functionality
 
-## Getting Started
+ WinCard() – Displays a win with reactions
+ FounderAvatar() – Consistent founder avatars
+ ReactionsRow() – Emoji interactions
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+--Firebase
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+separation of concern kept
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ FirebaseService.getWinsStream() → Real-time wins
+ FirebaseService.addWin() → Post a new win
+ FirebaseService.addReaction() → Emoji reactions
+
+--Models used
+
+Strongly typed models keep data safe and predictable:
+
+ Win.fromMap() → Convert Firestore data
+ Win.toMap() → Save data back to Firestore
+
+
+firestore data pattern
+
+wins (collection)
+├── winId1
+│   ├── founderName: "Abdullah"
+│   ├── company: "TechCorp"
+│   ├── content: "Just closed our first major client!"
+│   ├── timestamp: Timestamp
+│   ├── reactions: {🎉: 5, 🚀: 3, 💪: 2}
+│   └── avatar: "🚀"
+
+
+
+
+ Problem-Solving
+
+
+
+ Added dependencies, built a service layer, used real-time streams
+
+ Split into reusable components with single responsibility
+
+ Used Firebase transactions for atomic updates + live streams
+ Optimistic UI for smooth experience
+
+
+-- With 5 More Hours
+ can implenet auth and founder profiles can be made categories, leaderboard, weekly highlights,offline handling and upon request things.
+
+--working app
+Fully working wins board demo
+ Real-time Firebase backend
+
+
+
+
